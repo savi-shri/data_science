@@ -1,0 +1,45 @@
+# This is code for Data Wrangling Exercise 1: Basic Data Manipulation
+
+library("dplyr")
+library("tidyr")
+setwd("/excersize/data_wrangling_excersize_1")
+
+#load the excel
+all_data<-read.csv("refine_original.csv", header=TRUE, sep=",")
+
+#1: Clean up brand names
+data_clean1<-mutate(all_data, company = tolower(company)) %>% 
+  mutate(company = sub("ak.*", "akzo", company)) %>%
+  mutate(company =  sub("ph.*", "philips", company)) %>% 
+  mutate(company = sub("fillips", "philips", company)) %>%
+  mutate(company = sub("uni.*", "unilever", company))
+
+#data_new1 <- tbl_df(data_new)
+#2: Separate product code and number
+data_clean2 <- separate(data_clean1, Product.code...number, c("product_code","product_number"))
+
+#3: Add product categories / make new variables
+
+data_clean3<-mutate(data_clean2, product_category = ifelse (product_code == "p", "Smartphone",
+                                                    ifelse (product_code == "v", "TV",
+                                                    ifelse (product_code == "x", "Laptop",
+                                                    ifelse (product_code == "q", "Tablet", product_code)))))
+
+#4: Add full address for geocoding
+
+data_clean4 <- mutate(data_clean3, full_address = paste( address,city, country, sep=","))
+
+#5: Create dummy variables for company and product category
+
+data_clean5 <- data_clean4 %>% mutate (
+  company_philips = ifelse(company == "philips", "1", "0")) %>% 
+  mutate (company_akzo = ifelse(company == "akzo", "1", "0"))%>% 
+  mutate (company_van_houten = ifelse(company == "van houten", "1", "0")) %>% 
+  mutate (company_unilever = ifelse(company == "unilever", "1", "0"))  %>% 
+  mutate (product_smartphone = ifelse(product_category == "Smartphone", "1", "0")) %>%
+  mutate (product_tablet = ifelse(product_category == "Tablet", "1", "0")) %>%
+  mutate (product_tv = ifelse(product_category == "TV", "1", "0")) %>%
+  mutate (product_laptop = ifelse(product_category == "Laptop", "1", "0"))
+
+#6. write the data into CSV file
+write.csv(data_clean5, file="refine_clean.csv")
