@@ -32,10 +32,12 @@ The Logistic Regression algorithm will be used to classify if an email is spam o
 Logistic regression is a simple classification algorithm to analyze a dataset in which there are one or more independent variables that determine an outcome.  In logistic regression the outcome or dependent variable is coded a 1 (TRUE) or 0 (FALSE).
 The goal of logistic regression is to find the best fitting (yet biologically reasonable) model to describe the relationship between the dependent variable (response or outcome variable) and a set of independent (predictor or explanatory) variables. Logistic regression generates the coefficients (and its standard errors and significance levels) of a formula to predict a logit transformation of the probability of presence of the characteristic of interest.
  
-### Definitions:
-Dependent variable : The variable whose values you want to predict. The dependent variable must be binary or dichotomous, and should only contain data coded as 0 or 1. 
+#### Definitions:
+##### Dependent variable : 
+The variable whose values you want to predict. The dependent variable must be binary or dichotomous, and should only contain data coded as 0 or 1. 
 
-Independent variables : The independent variables are the variables which are expected to influence the dependent variable.
+##### Independent variables : 
+The independent variables are the variables which are expected to influence the dependent variable.
 
 ### Project Deliverables:
 Project deliverables will be:
