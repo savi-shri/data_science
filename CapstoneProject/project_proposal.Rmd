@@ -24,7 +24,8 @@ The objective of this project is to build a model using a machine learning metho
 
 ### Data Acquisition
 The Spambase data set from UCI Machine Learning Repository (https://archive.ics.uci.edu/ml/datasets/spambase) will be used for this project.
-Method
+
+### Method
 The Logistic Regression algorithm will be used to classify if an email is spam or not a spam. 
 
 #### What is Logistic Regression?
