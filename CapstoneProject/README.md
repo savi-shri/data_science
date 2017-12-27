@@ -1,6 +1,12 @@
+README
+
 Springboard Introduction to Data Science Capstone Project Information
+
 Project Titile : Machine Learning Classifier for Detecting Email Spams
+
 Project Description : Logistic Regression algorithm used for creating a machine learning classifier for detecting email spams
+
+FILES DESCRIPTION:
 
 1. Springboard_Capstone_Project.pdf - Springboard Introduction to Data Science Capstone Project Report
 
